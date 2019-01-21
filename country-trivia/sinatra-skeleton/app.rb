@@ -7,7 +7,9 @@ set :database, {adapter:'sqlite3', database:'test.db'}
 class Question < ActiveRecord::Base
 end
 
-
+get '/' do
+    erb :landing 
+end
 #then set up sinatra actions
 #need to load all questions and display them 
 get '/questions' do

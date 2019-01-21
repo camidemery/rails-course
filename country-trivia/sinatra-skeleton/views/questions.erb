@@ -1,10 +1,11 @@
 
 <h1>Questions</h1>
 <a href="/questions/new"> NEW </a>
-    <% @questions.each do |q| %>
+<% @questions.each do |q| %>
     <div><%= q.question %>
     <%= q.answer %>
     <img src="<%= q.flag %>">
     <a href='/quesitons/edit?id=<%=q.id%>'>Edit</a>
-    <% end %></div>
+<% end %></div>
 
+<a href="/">HOME</a>
