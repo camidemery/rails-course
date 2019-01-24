@@ -1,0 +1,23 @@
+<h1>CONTACTS</h1>
+<form action='/search' method='get'>
+    <input type='text' name='query'>
+    <input type='submit' value='Search'>
+</form>
+
+<div><a href="/contacts/new">NEW</a></div>
+
+
+<% @contacts.each do |q| %>
+    <p class="contact">
+    <div><%= q.first_name %></div>
+    <div><%= q.last_name %></div>
+    <div><%= q.phone %></div>
+    <div><%= q.email %></div>
+    <div> <%= q.address %></div>
+    <div> <%= q.city %></div>
+    <div> <%= q.state %></div>
+    <div><%= q.zip %></div>
+    <a href='/contacts/edit?id=<%=q.id%>'>Edit</a>
+    <a href='/contacts/delete?id<%=q.id%>'>Delete</a>
+    </p>
+<% end %></div>
