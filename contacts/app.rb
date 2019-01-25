@@ -15,7 +15,7 @@ end
 
 #search
 get '/search' do
-    query = '%#{params[:query]%'
+    query = "%#{params[:query]}%"
     @contacts=Contact.where("first_name LIKE ? OR last_name LIKE ?", query, query)
     erb :search
 end
@@ -61,14 +61,9 @@ post '/contacts/edit' do
     redirect "/"
 end
 
-get '/contacts/delete' do
-    @contact = Contact.find(params[:id])
-    erb :delete
-end
-
 #deleting contact
-post '/contacts/delete' do
-    @contact=Contact.find_by(params[:id])
-    @contact.destroy
+get '/contacts/delete' do
+    contact=Contact.find_by(params[:id])
+    contact.destroy
     redirect "/"
 end
