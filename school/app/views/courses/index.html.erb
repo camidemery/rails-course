@@ -1,0 +1,18 @@
+
+<%=link_to 'NEW', courses_new_path%>
+
+<% @course.each do |course| %>
+<div>
+    <h4>
+        <%=course.name%>
+    </h4>
+    <h5>Location: <%=course.location%></h5>
+    <p>
+        <%=course.description%>
+        <%=course.id%>
+    </p>
+    <a href='courses/edit?id=<%=course.id%>'>EDIT</a>
+    <a href="courses/delete?id=<%=course.id%>">DELETE</a>
+    <a href="/courses/show?id=<%=course.id%>">SHOW</a>
+</div>
+<%end%>
