@@ -1,0 +1,2 @@
+class Equine < ApplicationRecord
+end

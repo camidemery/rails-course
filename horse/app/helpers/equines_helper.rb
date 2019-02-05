@@ -1,0 +1,2 @@
+module EquinesHelper
+end
