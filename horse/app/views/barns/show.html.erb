@@ -1,0 +1,9 @@
+<h1><%=@barn.name%></h1>
+
+<h2>Horses:</h2>
+<%= @barn.equines.each do |equine|%>
+<div>
+    <h5><%=equine.name%></h5>
+    <img src='<%=equine.picture%>' height='100'>
+</div>
+<%end%>

@@ -1,0 +1,16 @@
+<%=form_for @barn do |f| %>
+    <div>
+        <%= f.text_field :name, placeholder:'Name' %>
+    </div>
+    <div>
+        <%= f.text_field :owner, placeholder:'Owner' %>
+    </div>
+    <div>
+        <%= f.text_field :picture, placeholder:'Picture URL' %>
+    </div>
+    
+    <div>
+        <%= f.submit 'Save' %>
+    </div>
+    
+<%end%>

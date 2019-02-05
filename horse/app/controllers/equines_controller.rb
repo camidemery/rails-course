@@ -1,11 +1,12 @@
 class EquinesController < ApplicationController
     def new
         @barns=Barn.all
+        @equine=Equine.all
     end
     
     #creating equine
     def create 
-        equine=Equine.new
+        @equine=Equine.new
         equine.name=params[:name]
         equine.picture=params[:picture]
         equine.save

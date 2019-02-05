@@ -1,0 +1,12 @@
+<%= link_to 'New', new_barn_path %>
+
+<%=@barn.each do |barn|%>
+<div>
+    <h2><%=barn.name%></h2>
+    <p><%=barn.owner%></p>
+    <img src="<%=barn.picture%>" height="100">
+    
+    <%= link_to "Edit", edit_barn_path(barn.id)%>
+    <%= link_to 'Show', barn_path(barn)%>
+</div>
+<%end%>

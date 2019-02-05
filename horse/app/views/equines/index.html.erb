@@ -1,0 +1,10 @@
+<%= link_to "New", new_equine_path %>
+
+<% @equines.each do |equine| %>
+<div>
+    <h4><%=equine.name%></h4>
+    <img src='<%=equine.picture%>' height="150">
+    <%= link_to 'Edit', edit_equine_path(equine)%>
+    <%= link_to 'Show', equine_path(equine)%>
+</div>
+<%end%>
