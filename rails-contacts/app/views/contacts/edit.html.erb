@@ -1,0 +1,7 @@
+<h1>EDIT CONTACT</h1>
+<form action="/contacts" method="post">
+    <input type="text" name="first_name" placeholder="<%=@contacts.first_name%>">
+    <input type="text" name="last_name" placeholder="<%=@contacts.last_name%>">
+    <input type="hidden" name=‘id’ value="<%= @contacts.id %>">
+    <input type="submit" value="Save">
+</form>

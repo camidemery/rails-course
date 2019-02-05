@@ -1,0 +1,14 @@
+
+<h1>RESULTS</h1>
+<%if @contacts.length == 0%>
+    <h3>No Results</h3>
+<%else%>
+    <% @contacts.each do |q| %>
+        <p class="contact">
+        <div><%= q.first_name %> <%= q.last_name %></div>
+        </p>
+        <% end %>
+<%end%>
+    
+    
+    <a href='/contacts'>HOME</a>
