@@ -1,10 +1,16 @@
-<%= link_to 'New', new_dish_path%>
+<%= link_to '| New Dish', new_dish_path%>
 
 <% @dishes.each do |d| %>
-    <p>
-        <%=d.pasta%> with <%=d.sauce%>
-    </p>
-    <%= link_to 'Edit', edit_dish_path(d.id)%>
-    <%= link_to "Show", dish_path(d)%>
-    <%= link_to 'Delete', dish_path(d.id), method: :delete%>
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal"><%=d.pasta%> with <%=d.sauce%></h4>
+      </div>
+        <div class="card-body">
+          <h5 class="card-title pricing-card-title"> <%= link_to 'Edit', edit_dish_path(d.id)%> | <%= link_to "Show", dish_path(d)%> | <%= link_to 'Delete', dish_path(d.id), method: :delete%></h1>
+        </div>
+    </div>
+  </div>
+</div>
 <%end%>
