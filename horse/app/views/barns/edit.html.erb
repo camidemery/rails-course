@@ -1,16 +1,16 @@
-<%=form_for @barn do |f| %>
+<%=form_tag(barns_path, method: "post") do %>
     <div>
-        <%= f.text_field :name, placeholder:'Name' %>
+        <%= text_field_tag "name",'', placeholder:'Name' %>
     </div>
     <div>
-        <%= f.text_field :owner, placeholder:'Owner' %>
+        <%= text_field_tag "owner", '',  placeholder:'Owner' %>
     </div>
     <div>
-        <%= f.text_field :picture, placeholder:'Picture URL' %>
+        <%= text_field_tag "location", '', placeholder:'Location' %>
     </div>
     
     <div>
-        <%= f.submit 'Save' %>
+        <input type="submit" value="Save">
     </div>
     
 <%end%>

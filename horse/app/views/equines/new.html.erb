@@ -1,5 +1,13 @@
-<%= form_for @equine do |f|%>
-<div><%= f.text_field :name, placeholder: 'Name'%></div>
-<div><%= f.text_field :picture, placeholder: 'Picture URL'%></div>
-<div><%=f.submit 'Save'%></div>
+<%=form_tag(equines_path, method: "post") do %>
+    <div>
+        <%= text_field_tag "name",'', placeholder:'Name' %>
+    </div>
+    <div>
+        <%= text_field_tag "picture", '',  placeholder:'Picture URL' %>
+    </div>
+    
+    <div>
+        <input type="submit" value="Save">
+    </div>
+    
 <%end%>

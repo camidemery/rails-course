@@ -4,9 +4,10 @@
 <div>
     <h2><%=barn.name%></h2>
     <p><%=barn.owner%></p>
-    <img src="<%=barn.picture%>" height="100">
-    
+    <p><%=barn.location%></p>
+
     <%= link_to "Edit", edit_barn_path(barn.id)%>
     <%= link_to 'Show', barn_path(barn)%>
+    <%= link_to "Delete", barn_path(barn.id), method: :delete%> 
 </div>
 <%end%>

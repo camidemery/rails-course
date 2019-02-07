@@ -4,11 +4,11 @@ class BarnsController < ApplicationController
     end
     
     def create 
-        barn=Barn.new
-        barn.name= params[:name]
-        barn.location= params[:location]
-        barn.owner = params[:owner]
-        barn.save
+        @barn=Barn.new
+        @barn.name= params[:name]
+        @barn.location= params[:location]
+        @barn.owner = params[:owner]
+        @barn.save
         redirect_to'/barns'
     end
     
@@ -33,9 +33,9 @@ class BarnsController < ApplicationController
     end
     
     #destroy
-    def delete
-        barn=Barn.find(params[:id])
-        barn.destroy
+    def destroy
+        @barn=Barn.find(params[:id])
+        @barn.destroy
         redirect_to '/barns' 
     end
     
