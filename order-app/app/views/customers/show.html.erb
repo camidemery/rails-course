@@ -1,0 +1,17 @@
+<h1>
+    <%=@customer.first_name%> <%=@customer.last_name%>
+</h1>
+
+<%= form_tag '/customers/add_dish' do%>
+    <%= hidden_field_tag 'customer_id', @customer.id %>
+    <%= select_tag 'dish_id', options_from_collection_for_select(@dishes, :id, :pasta)%>
+    <%= submit_tag 'Add'%> 
+<%end%>
+
+<h2>Ordered</h2>
+
+<% @customer.dishes.each do |c|%>
+    <div>
+        <%=c.pasta%> with <%=c.sauce%>
+    </div>
+<%end%>

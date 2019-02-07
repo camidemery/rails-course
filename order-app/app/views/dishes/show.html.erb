@@ -1,0 +1,11 @@
+<h1>
+    <%=@dish.pasta%> with <%=@dish.sauce%>
+</h1>
+
+<h2>Orders</h2>
+
+<% @dish.customers.each do |c|%>
+    <div>
+        <%=c.first_name%> <%=c.last_name%>
+    </div>
+<%end%>
