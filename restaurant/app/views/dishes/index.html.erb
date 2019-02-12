@@ -1,0 +1,16 @@
+<%=link_to 'New Dish', new_dish_path%>
+
+<%@dishes.each do |d|%>
+<div class=container>
+  <div class= "row align-items-start">
+    <div class="col-3 py-3 px-lg-5 border bg-light ">
+        <div><%=image_tag d.picture, height: 100 %></div>
+        <%=d.name%>
+        <p><%=d.description%></p>
+        <p>$<%=d.price%></p>
+        <%=link_to 'Edit', edit_dish_path(d.id)%>
+        <%= link_to 'Delete', dish_path(d.id), method: :delete%>
+    </div>
+  </div>
+</div>
+<%end%>

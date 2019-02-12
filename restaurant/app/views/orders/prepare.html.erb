@@ -1,0 +1,19 @@
+<h2>MENU</h2>
+<% @dishes.each do |d|%>
+<div>
+    <%= image_tag d.picture, height: 100%>
+    <h3><%= d.name %></h3>
+    <p><%= d.description%></p>
+    <%= link_to 'Add', add_order_path(@order, dish_id: d.id), method: :post%>
+</div>
+<%end%>
+
+<h4>CURRENT ORDER</h4>
+<% @order.order_dishes.each do |order_dish| %>
+    <div>
+        <%= image_tag order_dish.dish.picture, height: 100%>
+        <h3><%= order_dish.dish.name %></h3>
+        <p><%= order_dish.dish.description%></p>
+        <%= link_to 'Remove', remove_order_path(@order, order_dish_id: order_dish.id), method: :delete%>
+    </div>
+<%end%>

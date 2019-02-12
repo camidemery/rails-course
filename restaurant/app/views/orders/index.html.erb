@@ -1,0 +1,7 @@
+<%= link_to 'New Order', new_order_path%>
+<% @orders.each do |o|%>
+<div>
+    <%= o.street_address%> <%= o.city%>, <%= o.state%> <%= o.zip%>
+    <%= o.status%>
+</div>
+<% end %>
