@@ -3,5 +3,7 @@
 <div>
     <%= o.street_address%> <%= o.city%>, <%= o.state%> <%= o.zip%>
     <%= o.status%>
+    <%= link_to 'Edit', prepare_order_path(o)%>
+    <%= o.created_at.strftime("%-d-%b-%Y")%>
 </div>
 <% end %>

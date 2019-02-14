@@ -1,0 +1,41 @@
+<% @orders.each do |order|%>
+    <div class='container row border border-dark p-2'>
+        <div class='col-2'>
+            <%= order.status%>
+        </div>
+        <div class='col-6'>
+            <%= order.street_address %>
+            <%= order.city %>
+            <%= order.state %>
+            <%= order.zip %>
+        </div>
+        <div class='col-2'>
+            $<%= order.total.round(2) %>
+        </div>
+        <div class='col-2'>
+            <%if order.status == 'submitted'%>
+                <%= link_to 'Prepare', prepare_path(order), method: :put, class: 'btn btn-small btn-secondary'%>
+            <%elsif order.status== 'preparing'%>
+                <%= link_to 'Enroute', enroute_path(order), method: :put, class: 'btn btn-small btn-secondary'%>
+            <%elsif order.status== 'enroute'%>
+                <%= link_to 'Deliver', deliver_path(order), method: :put, class: 'btn btn-small btn-secondary'%>
+            <%elsif order.status== 'delivering'%>
+                <%= link_to 'Complete', complete_path(order), method: :put, class: 'btn btn-small btn-secondary'%>
+            <%end%>
+        </div>
+    </div>
+    <%if order.status=='preparing'%>
+        <h5>Items</h5>
+        <% order.order_dishes.each do |order_dish| %>
+        <div class='container row'>
+                <div class="media p-2">
+                    <%= image_tag order_dish.dish.picture, height: 50, class:'mr-3'%>
+                    <h6 class='media-body'>
+                        <%= order_dish.dish.name %>
+                    </h6>
+                </div>
+        </div>
+        <%end%>
+    <%else%>
+    <%end%>
+<%end%>

@@ -28,6 +28,12 @@ end
 def prepare
     @order=Order.find(params[:id])
     @dishes=Dish.all
+    #summing price of dishes
+    @total=0
+    @order.dishes.each do |dish|
+        @total=@total+dish.price
+        @total=@total.round(2)
+    end
 end
 
 def add
@@ -44,6 +50,13 @@ def remove
     order_dish= OrderDish.find(params[:order_dish_id])
     order_dish.destroy
     redirect_to prepare_order_path(@order)
+end
+
+def submit 
+    @order=Order.find(params[:id])
+    @order.status='submitted'
+    @order.save
+    redirect_to orders_path
 end
 
 end

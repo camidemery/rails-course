@@ -1,19 +1,36 @@
-<h2>MENU</h2>
-<% @dishes.each do |d|%>
-<div>
-    <%= image_tag d.picture, height: 100%>
-    <h3><%= d.name %></h3>
-    <p><%= d.description%></p>
-    <%= link_to 'Add', add_order_path(@order, dish_id: d.id), method: :post%>
-</div>
-<%end%>
-
-<h4>CURRENT ORDER</h4>
-<% @order.order_dishes.each do |order_dish| %>
-    <div>
-        <%= image_tag order_dish.dish.picture, height: 100%>
-        <h3><%= order_dish.dish.name %></h3>
-        <p><%= order_dish.dish.description%></p>
-        <%= link_to 'Remove', remove_order_path(@order, order_dish_id: order_dish.id), method: :delete%>
+<div class="row">
+   <div class="col-9"> 
+    <h2>MENU</h2>
+        <% @dishes.each do |d|%>
+        <div class="media mt-3">
+        
+            <%= image_tag d.picture, height: 100, class:'align-self-center mr-3'%>
+            <div class="media-body">
+            <h5 class='mt-0'>
+                <%=d.name %>
+                <%= link_to 'Add', add_order_path(@order, dish_id: d.id), method: :post, class: 'btn btn-primary btn-sm'%>
+            </h5>
+            
+            <%= d.description%>
+            <div>$<%=d.price%></div>
+            </div>
+        </div>
+        <%end%>
     </div>
-<%end%>
+
+    <div class="col-3">
+        <h5>Items(<%= @order.order_dishes.length%>) </h5>
+            <% @order.order_dishes.each do |order_dish| %>
+                <div class="media p-2">
+                    <%= image_tag order_dish.dish.picture, height: 50, class:'mr-3'%>
+                    <h6 class='mt-0'>
+                        <%= order_dish.dish.name %>
+                        <div><%= link_to 'Remove', remove_order_path(@order, order_dish_id: order_dish.id), method: :delete, class: 'btn btn-warning btn-sm'%></div>
+                    </h6>
+                </div>
+            <%end%>
+        <h6>Total= $<%=@total%></h6>
+        <%= link_to 'Submit', submit_order_path(@order), method: :put, class: 'btn btn-success'%>
+    </div>
+</div>
+

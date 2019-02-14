@@ -9,11 +9,18 @@ Rails.application.routes.draw do
       post 'add'
       #'/orders/:id/add'
       delete 'remove'
+      #submitting order
+      put 'submit'
     end
     #collection do would render an id-less URL
-    
-  end
+ end   
   
+  get '/restaurant/orders'=> 'restaurant_orders#index'
+  put '/restaurant/orders/:id/prepare' =>'restaurant_orders#prepare', as: :prepare
+  put '/restaurant/orders/:id/enroute' =>'restaurant_orders#enroute', as: :enroute
+  put '/restaurant/orders/:id/deliver' =>'restaurant_orders#deliver', as: :deliver
+  put '/restaurant/orders/:id/complete' =>'restaurant_orders#complete', as: :complete
+
   root 'orders#index'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
