@@ -1,0 +1,7 @@
+<%= form_for @animal do |f| %>
+<div><%= f.text_field :name, placeholder: 'Name'%></div>
+<div><%= f.text_field :sex, placeholder: 'Sex' %></div>
+<div><%= f.text_field :picture, placeholder: 'Picture URL' %></div>
+<%= f.submit 'Save'%>
+<%end%>
+
