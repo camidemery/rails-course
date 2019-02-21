@@ -7,6 +7,7 @@ class AnimalsController < ApplicationController
     
     def show
         @animal=Animal.find(params[:id])
+        
     end
     
     def new
@@ -15,7 +16,8 @@ class AnimalsController < ApplicationController
     
     def create
         @animal=Animal.new
-        @animal.name=params[:animal][:name]
+        @animal.first_name=params[:animal][:first_name]
+        @animal.last_name=params[:animal][:last_name]
         @animal.sex=params[:animal][:sex]
         @animal.picture=params[:animal][:picture]
         @animal.save
@@ -35,7 +37,7 @@ class AnimalsController < ApplicationController
         redirect_to animals_path
     end
     
-    def delete
+    def destroy
         animal=Animal.find(params[:id])
         animal.destroy  
         redirect_to animals_path

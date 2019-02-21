@@ -1,8 +1,12 @@
 <container>
 <%= form_for @animal do |f| %>
 <div class="form-group">
-  <label>Animal Name:</label>
-  <div><%= f.text_field :name, placeholder: 'Name'%></div>
+  <label>Animal First Name:</label>
+  <div><%= f.text_field :first_name, placeholder: 'First Name'%></div>
+</div>
+<div class="form-group">
+  <label>Animal Last Name:</label>
+  <div><%= f.text_field :last_name, placeholder: 'Last Name'%></div>
 </div>
 <div class="form-group">
   <label>Sex:</label>

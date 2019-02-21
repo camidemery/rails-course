@@ -17,10 +17,10 @@
 <div class="album py-5 bg-light">
   <div class="container">
      <div class="row">
-      <%= @animals.each do |animal|%>
+      <% @animals.each do |animal|%>
       <div class="col-md-3">
         <div class="card mb-3">
-          <div class="card-header"><%=animal.name%>, <%=animal.sex%></div>
+          <div class="card-header"><%=animal.last_name%>,<%=animal.first_name%></div>
           <img class="card-img-top img-fluid" ><%=image_tag animal.picture, height:200, width:'auto'%></img>        
           <div class="card-body" align='center'>
             <div class="d-flex justify-content-center align-items-center">

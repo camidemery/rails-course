@@ -2,19 +2,25 @@
 <%= form_for @visit do |f| %>
 
 <label>Patient</label>
-<select name='animal_id'>
+<select name="animal_id">
   <% @animal.each do |animal|%>
-    <option value="<%=animal.id%>"><%=animal.name%></option>
+    <option value="<%=animal.id%>"><%=animal.last_name%>, <%=animal.first_name%></option>
   <%end%>
 </select>
 
-<label>Weight</label>
-<div><%= f.number_field :weight, placeholder: "lbs", step: 0.1%></div>
+<div>
+  <label>Weight:</label>
+  <%= f.number_field :weight, placeholder: "lbs", step: 0.1%>
+</div>
 
 <label>Veterinarian:</label>
-  <div><%= f.text_field :vet, placeholder: 'Veterinarian Name'%></div>
+  <div>
+    <%= f.text_field :vet, placeholder: 'Veterinarian Name'%>
+  </div>
 
-<%=f.submit 'Save', class:"btn btn-primary"%>
+<div>
+    <%=f.submit "Save", class:"btn btn-primary"%>
+</div>
 <%end%>
 
 

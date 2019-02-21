@@ -4,6 +4,7 @@ class VisitsController < ApplicationController
     def index
         @animal=Animal.all
         @visit=Visit.all
+        @user=User.all
     end
     
     def show
@@ -17,30 +18,36 @@ class VisitsController < ApplicationController
     
     def create
         @animal=Animal.all
+        @user=User.all
         @visit=Visit.new
         @visit.weight=params[:visit][:weight]
-        @visit.animal_id=params[:visit][:animal_id]
+        @visit.animal_id=params[:animal_id]
         @visit.vet=params[:visit][:vet]
-        @visit.user_id=current_user
-        @visit.save
-        redirect_to visits_path
+        @visit.user_id=current_user.id
+        @visit.save!
+        redirect_to animal_path(params[:animal_id])
     end
     
     def edit
         @visit=Visit.find(params[:id])
+        @animal=Animal.all
+        @user=User.all
     end
     
     def update
         @animal=Animal.all
         @visit=Visit.find(params[:id])
         @visit.weight=params[:visit][:weight]
-        @visit.animal_id=params[:visit][:animal_id]
-        @visit.user_id=current_user
-        @visit.save
-        redirect_to animals_path(@animal)
+        @visit.animal_id=params[:animal_id]
+        @visit.vet=params[:visit][:vet]
+        @visit.user_id=current_user.id
+        @visit.save!
+        redirect_to animals_path
     end
     
-    def delete
+    def destroy
+      @visit=Visit.find(params[:id])
+        @visit.destroy  
+      redirect_to animals_path
     end
-
 end
