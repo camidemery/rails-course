@@ -42,7 +42,7 @@ class VisitsController < ApplicationController
         @visit.vet=params[:visit][:vet]
         @visit.user_id=current_user.id
         @visit.save!
-        redirect_to animals_path
+        redirect_to animal_path(params[:animal_id])
     end
     
     def destroy

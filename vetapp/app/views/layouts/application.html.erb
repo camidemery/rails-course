@@ -74,15 +74,12 @@
         </li>
       </ul>
       <%end%>
-        
-      
-    </nav>
-    <%if current_user != nil%>
-      <div class="text-right">
-        <h6><%=current_user.email%> <%=current_user.first_name%> <%=current_user.last_name%> is now logged on</h6>
+      <%if current_user != nil%>
+        <h6 class="p-1"><%=current_user.email%> <%=current_user.first_name%> <%=current_user.last_name%> is now logged on</h6>
         <%=link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-secondary my-0"%>
-      </div>
-    <%end%>
+      <%end%>  
+    </nav>
+   
    
     
 
