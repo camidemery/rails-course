@@ -1,4 +1,6 @@
 class AnimalsController < ApplicationController
+    before_action :authenticate_user!
+
     def index
         @animals=Animal.all
     end
@@ -38,6 +40,16 @@ class AnimalsController < ApplicationController
         animal.destroy  
         redirect_to animals_path
     end
+    
+    # def search
+    #     @animal=Animal.all
+    #     if params[:search]
+    #         @animal = Animal.search(params[:search])
+            
+    #     else
+    #         @animal= Animal.all
+    #     end
+    # end
     
 
 end

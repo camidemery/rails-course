@@ -7,10 +7,74 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>VetApp</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      
+      .container {
+        margin: 100;
+      }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
   </head>
 
-  <body>
+
+<body>
+    <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>VetApp</strong>
+        </a>
+        <ul class= "navbar-nav mr-auto">
+          <li class= "nav-item">
+            <a href="/visits/new" class="nav-item d-flex align-items-left">
+              New Visit
+            </a>
+          </li>
+          <li class= "nav-item">
+            <a href="/animals" class="nav-item d-flex align-items-left">
+              Patients
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+    <%if current_user != nil%>
+      <div class="text-right">
+        <h6><%=current_user.email%> <%=current_user.first_name%> <%=current_user.last_name%> is now logged on</h6>
+        <%=link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-secondary my-0"%>
+      </div>
+    <%end%>
+   
+    
+
+  </header>
+  <main class="container">
     <%= yield %>
-  </body>
+  </main>
+</body>
 </html>

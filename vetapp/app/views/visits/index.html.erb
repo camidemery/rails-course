@@ -1,0 +1,8 @@
+<%= link_to 'New', new_visit_path, class:"btn btn-primary my-2"%>
+
+<%= @visit.each do |visit| %>
+<%= visit.vet%>
+<%= visit.weight%>
+<%= visit.created_at%>
+<%= visit.animal_id.name%>
+<%end%>

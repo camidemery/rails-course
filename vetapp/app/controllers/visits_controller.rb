@@ -1,5 +1,9 @@
 class VisitsController < ApplicationController
+       before_action :authenticate_user!
+
     def index
+        @animal=Animal.all
+        @visit=Visit.all
     end
     
     def show
@@ -7,15 +11,19 @@ class VisitsController < ApplicationController
     
     def new
         @visit=Visit.new
+        @animal=Animal.all
+        @user=User.all
     end
     
     def create
+        @animal=Animal.all
         @visit=Visit.new
         @visit.weight=params[:visit][:weight]
         @visit.animal_id=params[:visit][:animal_id]
-        @visit.user_id=current_user.id
+        @visit.vet=params[:visit][:vet]
+        @visit.user_id=current_user
         @visit.save
-        redirect_to animals_path(@animal)
+        redirect_to visits_path
     end
     
     def edit
@@ -23,10 +31,11 @@ class VisitsController < ApplicationController
     end
     
     def update
+        @animal=Animal.all
         @visit=Visit.find(params[:id])
         @visit.weight=params[:visit][:weight]
         @visit.animal_id=params[:visit][:animal_id]
-        @visit.user_id=current_user.id
+        @visit.user_id=current_user
         @visit.save
         redirect_to animals_path(@animal)
     end
