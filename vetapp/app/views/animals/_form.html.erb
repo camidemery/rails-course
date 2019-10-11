@@ -1,0 +1,23 @@
+<container>
+<%= form_for @animal do |f| %>
+<div class="form-group">
+  <label>Animal First Name:</label>
+  <div><%= f.text_field :first_name, placeholder: 'First Name'%></div>
+</div>
+<div class="form-group">
+  <label>Animal Last Name:</label>
+  <div><%= f.text_field :last_name, placeholder: 'Last Name'%></div>
+</div>
+<div class="form-group">
+  <label>Sex:</label>
+<div><%= f.text_field :sex, placeholder: 'Sex' %></div>
+</div>
+<div class="form-group">
+  <label>Picture:</label>
+<div><%= f.text_field :picture, placeholder: 'Picture URL' %></div>
+</div>
+<%= f.submit 'Save', class:"btn btn-primary"%>
+
+</container>
+<%end%>
+

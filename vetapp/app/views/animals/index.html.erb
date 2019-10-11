@@ -1,0 +1,40 @@
+<main role="main">
+  <div class="container border border-secondary rounded-lg mt-3">
+    <h1 class="text-center">Patients
+    <div>
+      <%= link_to "New", new_animal_path, class:"btn btn-primary my-2" %>
+    </div>
+    </h1>
+  </div>
+
+
+<!--<%= form_tag(search_animals_path, method: "get") do %>-->
+<!--  <%= label_tag :search, "Search for:" %>-->
+<!--  <%= text_field_tag :search %>-->
+<!--  <%= submit_tag("Search") %>-->
+<!--<% end %>-->
+
+<div class="album py-5 bg-light">
+  <div class="container">
+     <div class="row">
+      <% @animals.each do |animal|%>
+      <div class="col-md-3">
+        <div class="card mb-3">
+          <div class="card-header"><%=animal.last_name%>,<%=animal.first_name%></div>
+          <img class="card-img-top img-fluid" ><%=image_tag animal.picture, height:200, width:'auto'%></img>        
+          <div class="card-body" align='center'>
+            <div class="d-flex justify-content-center align-items-center">
+              <div class="btn-group">
+                <%= link_to "View", animal_path(animal), class:"btn btn-sm btn-outline-secondary"%>
+                <%= link_to "Edit", edit_animal_path(animal), class:"btn btn-sm btn-outline-secondary"%>
+                <%= link_to "Delete", animal_path(animal), method: :delete, class:"btn btn-sm btn-outline-danger"%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+    </div>
+  </div>
+</div>
+</main>  
