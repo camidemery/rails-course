@@ -1,0 +1,16 @@
+<h1>RESULTS</h1>
+
+<% @contacts.each do |q| %>
+    <p class="contact">
+    <div><%= q.first_name %></div>
+    <div><%= q.last_name %></div>
+    <div><%= q.phone %></div>
+    <div><%= q.email %></div>
+    <div> <%= q.address %></div>
+    <div> <%= q.city %></div>
+    <div> <%= q.state %></div>
+    <div><%= q.zip %></div>
+    </p>
+    <% end %>
+    
+    <a href='/'>HOME</a>
